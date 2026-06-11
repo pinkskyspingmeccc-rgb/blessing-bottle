@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>祝福漂流瓶</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Blessing Bottle</p>
+        <h1>祝福漂流瓶</h1>
+        <p class="intro">寫下一句祝福語或心得，把它放進漂流瓶。送出的祝福會出現在下方，大家都可以一起看見。</p>
+      </div>
+      <div class="bottle-area" aria-hidden="true">
+        <div class="bottle">
+          <div class="cork"></div>
+          <div class="glass">
+            <div class="paper-note">祝福</div>
+            <div class="wave"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-card">
+      <h2>寫下你的祝福</h2>
+      <p class="hint">每部裝置只能提交一次。請寫溫暖、尊重、鼓勵的內容。</p>
+      <form id="blessingForm">
+        <label for="name">你的名字或暱稱</label>
+        <input id="name" name="name" type="text" maxlength="20" placeholder="例如：Boris / 小明媽媽" required />
+
+        <label for="message">祝福語或心得</label>
+        <textarea id="message" name="message" maxlength="160" rows="5" placeholder="寫下你想送出的祝福……" required></textarea>
+
+        <div class="counter"><span id="charCount">0</span>/160</div>
+        <button id="submitBtn" type="submit">放入祝福漂流瓶</button>
+        <p id="formStatus" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="wall">
+      <div class="wall-header">
+        <h2>大家的祝福</h2>
+        <button id="refreshBtn" type="button">重新整理</button>
+      </div>
+      <div id="blessingList" class="blessing-list">
+        <p class="empty">正在載入祝福……</p>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
