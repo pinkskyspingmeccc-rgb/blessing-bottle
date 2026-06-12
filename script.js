@@ -10,16 +10,14 @@ import {
   limit
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-/*
-  請把 Firebase Console 裡的 Web App config 貼到這裡。
-*/
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY_HERE",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyDdr5ED0II8pDpF_L4515dsxsRhaMnsmZY",
+  authDomain: "blessing-bottle.firebaseapp.com",
+  projectId: "blessing-bottle",
+  storageBucket: "blessing-bottle.firebasestorage.app",
+  messagingSenderId: "82671684821",
+  appId: "1:82671684821:web:1b65d628fc6d1f0af2e65c",
+  measurementId: "G-TQ8T20F9XG"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -74,7 +72,7 @@ async function loadBlessings() {
   blessingList.innerHTML = `<p class="empty">正在載入祝福……</p>`;
 
   try {
-    const q = query(blessingsRef, orderBy("createdAt", "desc"), limit(80));
+    const q = query(blessingsRef, orderBy("createdAt", "desc"), limit(200));
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
@@ -96,7 +94,7 @@ async function loadBlessings() {
     });
   } catch (error) {
     console.error(error);
-    blessingList.innerHTML = `<p class="empty">載入失敗，請檢查 Firebase 設定。</p>`;
+    blessingList.innerHTML = `<p class="empty">載入失敗，請檢查 Firebase / Firestore 設定。</p>`;
   }
 }
 
@@ -143,7 +141,7 @@ form.addEventListener("submit", async (event) => {
   } catch (error) {
     console.error(error);
     submitBtn.disabled = false;
-    setStatus("送出失敗，請檢查 Firebase 設定或網絡連線。", "error");
+    setStatus("送出失敗，請檢查 Firestore Database 是否已建立，以及 Rules 是否已發佈。", "error");
   }
 });
 
