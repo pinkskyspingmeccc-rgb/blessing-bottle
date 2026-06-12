@@ -85,3 +85,67 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   .bottle-area { min-height: 240px; }
   .hero-text, .form-card, .wall { padding: 22px; }
 }
+
+body::before {
+  content: "祝生日快樂   祝生日快樂   祝生日快樂";
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  color: rgba(255, 120, 150, 0.10);
+  letter-spacing: 0.18em;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  color: #d45b7a;
+}
+
+.hero-text::after {
+  content: "祝生日快樂";
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffd978, #ffb7cf);
+  color: #6b4351;
+  font-weight: 900;
+  box-shadow: 0 6px 16px rgba(212, 91, 122, 0.15);
+}
+
+
+body::after {
+  content: "你必將生命的道路指示我。在你面前有滿足的喜樂；在你右手中有永遠的福樂。" " －詩篇16:11";
+  position: fixed;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: min(92vw, 1200px);
+  text-align: center;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.9;
+  font-weight: 800;
+  color: rgba(116, 87, 132, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 760px) {
+  body::after {
+    top: 62%;
+    width: 88vw;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
